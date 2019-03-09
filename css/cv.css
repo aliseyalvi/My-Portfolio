@@ -1,0 +1,226 @@
+body {
+  font-family: 'sans serif';
+  font-weight: 100;
+  line-height: 1.5;
+}
+
+div {
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.profile_container {
+  height: auto;
+  display: grid;
+  grid-template: 150px auto /repeat(5, minmax(200px, 1fr));
+  grid-gap: 5px;
+  height: 100%;
+  padding-bottom: 20px;
+  grid-template-areas:
+    ". pf pf pf ."
+    ". ab pp dt ."
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.profile_container div {
+  background-color: white;
+}
+
+.profile {
+  grid-area: pf;
+  align-content: center;
+  text-align: center;
+  line-height: 0.8;
+  height: auto;
+  padding: 10px;
+}
+
+h2 {
+  color: #59bab7;
+  font-weight: lighter;
+  font-size: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+.profile h2 span {
+  color: grey;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.about_me {
+  grid-area: ab;
+}
+
+.prof_pic {
+  grid-area: pp;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.prof_pic img {
+  height: auto;
+  max-width: 80%;
+  border-radius: 50%;
+  border: 10px solid #f3efe0;
+}
+
+.details {
+  grid-area: dt;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: lighter;
+  color: #59bab7;
+  margin: 0;
+  padding: 0;
+}
+
+.experience_container {
+  height: auto;
+  display: grid;
+  grid-template: 200px 70px 180px 180px 180px/repeat(5, minmax(200px, 1fr));
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #F3EFE0;
+  padding: 10px;
+  grid-template-areas:
+    ". a a a ."
+    ". z z z ."
+    ". b c c ."
+    ". d e e ."
+    ". f g g ."
+  ;
+}
+
+.experience_container div {}
+
+.experience_container .exp0 {
+  grid-area: z;
+}
+
+.experience_container .exp1, .abil_head {
+  grid-area: a;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.experience_container .exp2 {
+  grid-area: b;
+}
+
+.experience_container .exp3 {
+  grid-area: c;
+}
+
+.experience_container .exp4 {
+  grid-area: d;
+}
+
+.experience_container .exp5 {
+  grid-area: e;
+}
+
+.experience_container .exp6 {
+  grid-area: f;
+}
+
+.experience_container .exp7 {
+  grid-area: g;
+}
+
+.abilities {
+  height: auto;
+  display: grid;
+  grid-template: 200px 60px 200px 30px 60px 100px 30px 60px 200px/minmax(200px ,1fr) minmax(300px ,1.5fr) minmax(300px ,1.5fr) minmax(200px ,1fr);
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #white;
+  padding: 10px;
+  grid-template-areas:
+    ". ah ah ."
+    ". s s ."
+    ". s1 s2 ."
+    ". hr1 hr1 ."
+    ". l l ."
+    ". l1 l2  ."
+    ". hr2 hr2 ."
+    ". t t  ."
+    ". t1 t2  ."
+  ;
+}
+
+.abilities div {
+}
+
+.abilities .abil_head {
+  grid-area: ah;
+}
+.abilities .hr1{
+  grid-area: hr1;
+}
+.abilities .hr2{
+  grid-area: hr2;
+}
+
+.abilities .skills {
+  grid-area: s;
+
+}
+
+.abilities  table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.abilities table td{
+  padding: 5px 0 5px 0;
+}
+.abilities  table td:nth-child(even){
+  width: 40%;
+}
+.abilities  table td i{
+  color: #59bab7;
+}
+.abilities table tr:hover{
+  background-color: #E5E5E5;
+}
+
+.abilities .skills1 {
+  grid-area: s1;
+}
+
+.abilities .skills2 {
+  grid-area: s2;
+}
+
+.abilities .languages {
+  grid-area: l;
+}
+
+.abilities .languages1 {
+  grid-area: l1;
+}
+
+.abilities .languages2 {
+  grid-area: l2;
+}
+
+.abilities .tools {
+  grid-area: t;
+}
+
+.abilities .tools1 {
+  grid-area: t1;
+}
+
+.abilities .tools2 {
+  grid-area: t2;
+}
