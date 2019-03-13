@@ -1,5 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'sans serif';
+  font-family: 'Helvetica';
   font-weight: 100;
   line-height: 1.5;
 }
@@ -9,6 +13,84 @@ div {
   padding: 15px;
 }
 
+.parallax {
+  /* The image used */
+  background-image: url('../imgs/parallex.jpg');
+  background-size: cover;
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100vh;
+  opacity: 0.4;
+  /* Full height */
+  /*height: 600px;*/
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax .inside_parallex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+}
+
+.parallax .inside_parallex h1 {
+  font-size: 3em;
+  border-bottom: 0.5px solid white;
+}
+
+.parallax .inside_parallex p {
+  font-size: 1.5em;
+}
+
+.arrow_down {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 25px;
+  background-color: #495057;
+  color: #FFFFFF;
+  font-size: 3em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow_down a {
+  color: white;
+}
+
+/* menu */
+/*
+#navbar {
+  background-color: #333;
+  float: right;
+  width: 100px;
+  display: block;
+  transition: top 0.3s;
+}
+
+#navbar a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+*/
 .profile_container {
   height: auto;
   display: grid;
@@ -17,8 +99,8 @@ div {
   height: 100%;
   padding-bottom: 20px;
   grid-template-areas:
-    ". pf pf pf ."
-    ". ab pp dt ."
+    ". pf pf pf nv"
+    ". ab pp dt nv"
 }
 
 h1, h2, h3, h4, h5 {
@@ -29,7 +111,10 @@ h1, h2, h3, h4, h5 {
 .profile_container div {
   background-color: white;
 }
-
+.nav{
+  grid-area: nv;
+  padding: 0;
+}
 .profile {
   grid-area: pf;
   align-content: center;
@@ -140,7 +225,7 @@ h3 {
 .abilities {
   height: auto;
   display: grid;
-  grid-template: 200px 60px 200px 30px 60px 100px 30px 60px 200px/minmax(200px ,1fr) minmax(300px ,1.5fr) minmax(300px ,1.5fr) minmax(200px ,1fr);
+  grid-template: 200px 60px 200px 30px 60px 100px 30px 60px 200px/minmax(200px, 1fr) minmax(300px, 1.5fr) minmax(300px, 1.5fr) minmax(200px, 1fr);
   grid-gap: 5px;
   height: 100%;
   background-color: #white;
@@ -158,38 +243,42 @@ h3 {
   ;
 }
 
-.abilities div {
-}
+.abilities div {}
 
 .abilities .abil_head {
   grid-area: ah;
 }
-.abilities .hr1{
+
+.abilities .hr1 {
   grid-area: hr1;
 }
-.abilities .hr2{
+
+.abilities .hr2 {
   grid-area: hr2;
 }
 
 .abilities .skills {
   grid-area: s;
-
 }
 
-.abilities  table{
+.abilities table {
   width: 100%;
   border-collapse: collapse;
 }
-.abilities table td{
+
+.abilities table td {
   padding: 5px 0 5px 0;
 }
-.abilities  table td:nth-child(even){
+
+.abilities table td:nth-child(even) {
   width: 40%;
 }
-.abilities  table td i{
+
+.abilities table td i {
   color: #59bab7;
 }
-.abilities table tr:hover{
+
+.abilities table tr:hover {
   background-color: #E5E5E5;
 }
 
@@ -223,4 +312,87 @@ h3 {
 
 .abilities .tools2 {
   grid-area: t2;
+}
+
+@keyframes stars {
+  from {
+    font-size: 1em
+  }
+
+  to {
+    font-size: 1.2em
+  }
+}
+
+.abilities table tr:hover td i {
+  animation-duration: 0.5s;
+  animation-name: stars;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.contact {
+  background-color: #434242;
+  height: auto;
+  display: grid;
+  grid-template: 200px 200px 30px/minmax(200px, 1fr) minmax(300px, 1.5fr) minmax(300px, 1.5fr) minmax(200px, 1fr);
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #white;
+  padding: 10px;
+  grid-template-areas:
+    ". ch ch ."
+    ". cdiv1 cdiv2 ."
+    ". chr1 chr1 ."
+  ;
+}
+
+.contact div {}
+
+.contact_head {
+  grid-area: ch;
+  text-align: center;
+}
+
+.contact_head p {
+  font-size: 1.4em;
+}
+
+.conthr1 {
+  grid-area: chr1;
+}
+
+.contact_div1 {
+  grid-area: cdiv1;
+}
+
+.contact_div1 a {
+  color: #b5b5b5;
+  text-decoration: none;
+}
+
+.contact_div1 a:hover {
+  color: white;
+}
+
+.contact_div1 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact_div1 ul li {
+  margin-top: 20px;
+  color: #b5b5b5;
+}
+
+.contact_div12 {
+  grid-area: cdiv2;
+}
+
+.contact h2 {
+  color: white;
+}
+
+.contact .contact_head p {
+  color: grey;
 }
