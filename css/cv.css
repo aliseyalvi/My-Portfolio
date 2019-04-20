@@ -22,8 +22,7 @@ div {
   top: 0;
   left: 0;
   width: 100%;
-  height:100vh;
-  opacity: 0.4;
+  height: 100vh;
   /* Full height */
   /*height: 600px;*/
   /* Create the parallax scrolling effect */
@@ -35,9 +34,7 @@ div {
 
 .parallax .inside_parallex {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(50%) translateY(50%);
   color: white;
 }
 
@@ -111,10 +108,12 @@ h1, h2, h3, h4, h5 {
 .profile_container div {
   background-color: white;
 }
-.nav{
+
+.nav {
   grid-area: nv;
   padding: 0;
 }
+
 .profile {
   grid-area: pf;
   align-content: center;
@@ -329,6 +328,42 @@ h3 {
   animation-name: stars;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
+}
+
+.socialmedia_container {
+  height: auto;
+  display: grid;
+  grid-template: 200px 70px 280px /repeat(5, minmax(200px, 1fr));
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #F3EFE0;
+  padding: 10px;
+  grid-template-areas:
+    ". sm1 sm1 sm1 ."
+    ". sm2 sm2 sm2 ."
+    ". sm3 sm3 sm3 ."
+  ;
+}
+
+.socialmedia_container div {
+}
+
+.socialmedia_container .socialmedia_1 {
+  grid-area: sm1;
+  text-align: center;
+}
+
+.socialmedia_container .socialmedia_2 {
+  grid-area: sm2;
+  text-align: center;
+  color: #59bab7;
+  font-weight: lighter;
+  font-size: 1.4em;
+  padding: 0;
+}
+
+.socialmedia_container .socialmedia_3 {
+  grid-area: sm3;
 }
 
 .contact {
