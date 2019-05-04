@@ -15,7 +15,15 @@ div {
 
 .parallax {
   /* The image used */
-  background-image: url('../imgs/parallex.jpg');
+  /*background-image: url('../imgs/parallex.jpg');*/
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(100, 186, 183, 0.65),
+      rgba(100, 186, 183, 0.65)
+    ),
+    /* bottom, image */
+    url('../imgs/parallex.jpg');
   background-size: cover;
   content: "";
   display: block;
@@ -113,7 +121,49 @@ h1, h2, h3, h4, h5 {
   grid-area: nv;
   padding: 0;
 }
+.nav .insidenav{
 
+  height: auto;
+  width: 150px;
+  float: right;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px 5px 0 0;
+
+}
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #434242;
+  /*position: fixed;*/
+}
+.insidenav li a {
+  display: block;
+  color: #000;
+  padding: 20px 16px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  border-bottom: 1px solid rgb(76, 75, 75);
+}
+
+.active {
+  background-color: #59BAB7;
+  color: white;
+}
+
+.no-active {
+  background-color: #434242;
+  color: white;
+}
+
+.sticky{
+  position: fixed;
+/*  z-index: 999;*/
+  top: 10px;
+  right: 10px;
+}
 .profile {
   grid-area: pf;
   align-content: center;
@@ -284,6 +334,12 @@ h3 {
 .abilities .skills1 {
   grid-area: s1;
 }
+.abilities .skills1 i {
+  display: none;
+}
+.abilities .skills2 i {
+  display: none;
+}
 
 .abilities .skills2 {
   grid-area: s2;
@@ -342,6 +398,8 @@ h3 {
     ". sm1 sm1 sm1 ."
     ". sm2 sm2 sm2 ."
     ". sm3 sm3 sm3 ."
+    ". sm4 sm4 sm4 ."
+    ". sm5 sm5 sm5 ."
   ;
 }
 
@@ -364,8 +422,20 @@ h3 {
 
 .socialmedia_container .socialmedia_3 {
   grid-area: sm3;
+  overflow: scroll;
 }
-
+.socialmedia_container .socialmedia_4 {
+  grid-area: sm4;
+  text-align: center;
+  color: #59bab7;
+  font-weight: lighter;
+  font-size: 1.4em;
+  padding: 0;
+}
+.socialmedia_container .socialmedia_5 {
+  grid-area: sm5;
+  overflow: scroll;
+}
 .contact {
   background-color: #434242;
   height: auto;
@@ -431,3 +501,100 @@ h3 {
 .contact .contact_head p {
   color: grey;
 }
+
+@media only screen and (max-width: 992px)
+{
+  .profile_container {
+    height: auto;
+    display: grid;
+    grid-template: 150px auto /1fr minmax(300px, 2fr) 1fr;
+    grid-gap: 5px;
+    height: 100%;
+    padding-bottom: 20px;
+    grid-template-areas:
+      ". pf  nv"
+      ". ab  nv"
+      ". pp  nv"
+      ". dt  nv"
+  }
+  
+
+.experience_container {
+  height: auto;
+  display: grid;
+  grid-template: 250px 100px auto auto auto auto auto auto/1fr minmax(300px, 2fr) 1fr;
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #F3EFE0;
+  padding: 10px;
+  grid-template-areas:
+    ". a  ."
+    ". z  ."
+    ". b  ."
+    ". c  ."
+    ". d  ."
+    ". e  ."
+    ". f  ."
+    ". g  ."
+  ;
+}
+
+
+.abilities {
+  height: auto;
+  display: grid;
+  grid-template: 200px 60px 200px auto 30px 60px auto auto 30px 60px auto auto/1fr minmax(300px, 2fr) 1fr;
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #white;
+  padding: 10px;
+  grid-template-areas:
+    ". ah ."
+    ". s ."
+    ". s1 ."
+    ". s2 ."
+    ". hr1 ."
+    ". l ."
+    ". l1 ."
+    ". l2 ."
+    ". hr2 ."
+    ". t  ."
+    ". t1  ."
+    ". t2  ."
+  ;
+}
+
+.socialmedia_container {
+  height: auto;
+  display: grid;
+  grid-template: auto 70px 300px 70px 300px /1fr minmax(300px, 2fr) 1fr;
+  grid-gap: 5px;
+  height: 100%;
+  background-color: #F3EFE0;
+  padding: 10px;
+  grid-template-areas:
+    ". sm1 ."
+    ". sm2 ."
+    ". sm3 ."
+    ". sm4 ."
+    ". sm5 ."
+  ;
+}
+
+.contact {
+  background-color: #434242;
+  height: auto;
+  display: grid;
+  grid-template: auto auto auto 30px/1fr minmax(300px, 2fr) 1fr;
+  grid-gap: 5px;
+  height: 100%;
+  padding: 10px;
+  grid-template-areas:
+    ". ch ."
+    ". cdiv1 ."
+    ". cdiv2 ."
+    ". chr1 ."
+  ;
+}
+
+} 

@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/cv.css">
-<!--
+  <script type="text/javascript" src="js/script.js">
+  </script>
+  <!--
   <link rel="stylesheet" href="fontawesome-free-5.7.2-web/css/all.css">
 -->
 </head>
@@ -16,7 +18,7 @@
   <!--fb comment plugin -->
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
-<!-- //// -->
+  <!-- //// -->
 
   <div class="parallax">
     <div class="overlay">
@@ -30,8 +32,8 @@
     </div>
 
     <div class="arrow_down">
-      <a href="#prof" ><i class="fas fa-angle-down">
-      </i></a>
+      <a href="#prof"><i class="fas fa-angle-down">
+        </i></a>
     </div>
   </div>
   <div class="profile_container" id="prof">
@@ -63,10 +65,20 @@
         NUST H-12, Islamabad, Pakistan </p>
     </div>
     <div class="nav">
+      <div class="insidenav">
+        <ul id="navul">
+          <li><a id="active-1" href="#prof">About</a></li>
+          <li><a id="active-2" href="#exp">Experiences</a></li>
+          <li><a id="active-3" href="#abil">Abilities</a></li>
+          <li><a id="active-4" href="#sm">Social Media</a></li>
+          <li><a id="active-5" href="#cont">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
-  <div class="experience_container">
+  <div class="experience_container" id="exp">
     <div class="exp1">
       <h2>Experiences</h2>
       <p class="lead">
@@ -120,7 +132,7 @@
 
   </div>
 
-  <div class="abilities">
+  <div class="abilities" id="abil">
     <div class="abil_head">
       <h2>Abilities</h2>
       <p class="lead">
@@ -289,30 +301,42 @@
 
 
   </div>
-<!-- facebook comment plugin -->
+  <!-- facebook comment plugin -->
 
-<div class="socialmedia_container">
-  <div class="socialmedia_1">
-    <h2>Social Media</h2>
-    <p class="lead">
-      &ldquo;Protons give an atom its identity, electrons its personality.&rdquo;<br />- Bill Bryson, A short history of nearly everything
-    </p>
-    <br />
-    <hr />
+  <div class="socialmedia_container" id="sm">
+    <div class="socialmedia_1">
+      <h2>Social Media</h2>
+      <p class="lead">
+        &ldquo;Protons give an atom its identity, electrons its personality.&rdquo;<br />- Bill Bryson, A short history of nearly everything
+      </p>
+      <br />
+      <hr />
+    </div>
+
+    <!--Facebook Page/Profile-->
+    <div class="socialmedia_2">
+      <p>Facebook Timeline</p>
+    </div>
+
+    <div class="socialmedia_3">
+        <div class="fb-page" data-href="https://www.facebook.com/sadaqatalisial786" data-tabs="timeline" data-width="180" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+    </div>
+    
+
+    <!--Facebook comments-->
+    <div class="socialmedia_4">
+      <p>Give Your Feedback Here</p>
+    </div>
+
+    <div class="socialmedia_5">
+      <div class="fb-comments" data-href="https://aliseyalvi.github.io/My-Portfolio/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+
   </div>
-  <div class="socialmedia_2">
-    <p>Give Your Feedback Here</p>
-  </div>
-
-  <div class="socialmedia_3">
-    <div class="fb-comments" data-href="https://aliseyalvi.github.io/My-Portfolio/" data-width="100%" data-numposts="5" style="max-height:250px;overflow-y: scroll;"></div>
-  </div>
 
 
-</div>
-
-
-  <div class="contact">
+  <div class="contact" id="cont">
     <div class="contact_head">
       <h2>Contact</h2>
       <p class="lead">
@@ -335,8 +359,8 @@
         </li>
         <li>
 
-            <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
-            +92-304-5415579
+          <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
+          +92-304-5415579
         </li>
     </div>
     <div class="contact_div12">
@@ -348,7 +372,95 @@
     </div>
   </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
 
+$(function(){
+
+  // jQuery methods go here...
+$(window).scroll(function(){
+  var scrollTop = $(window).scrollTop();
+  var divOffsetProf = $('.profile_container').offset().top;
+  var dist = (divOffsetProf - scrollTop);
+  //console.log(dist,scrollTop,divOffsetProf);
+  if(scrollTop >= divOffsetProf){
+    $('.insidenav').css({"position": "fixed" , "top":"20px","right": "20px"});
+  }
+  else {
+    $('.insidenav').css({"position": "relative" , "top":"0px","right": "0px"});
+  }
+
+
+});
+$(window).scroll(function(){
+var scrollTop = $(window).scrollTop();
+var divOffsetProf = $('.profile_container').offset().top;
+var divOffsetExp = $('.experience_container').offset().top;
+var divOffsetAbil = $('.abilities').offset().top;
+var divOffsetSM = $('.socialmedia_container').offset().top;
+var divOffsetCont = $('.contact').offset().top;
+if(scrollTop >= divOffsetProf && scrollTop < divOffsetExp){
+  $('.insidenav #active-1').addClass("active");
+}
+else{
+  $('.insidenav #active-1').removeClass("active");
+}
+if(scrollTop >= divOffsetExp && scrollTop < divOffsetAbil){
+  $('.insidenav #active-2').addClass("active");
+}
+else{
+  $('.insidenav #active-2').removeClass("active");
+}
+if(scrollTop >= divOffsetAbil && scrollTop < divOffsetSM){
+  $('.insidenav #active-3').addClass("active");
+  starsAnim();
+}
+else{
+  $('.insidenav #active-3').removeClass("active");
+  starsFadeOut();
+}
+if(scrollTop >= divOffsetSM && scrollTop < divOffsetCont){
+  $('.insidenav #active-4').addClass("active");
+}
+else{
+  $('.insidenav #active-4').removeClass("active");
+}
+if($(window).scrollTop() + window.innerHeight == $(document).height()){
+  $('.insidenav #active-4').removeClass("active");
+  $('.insidenav #active-5').addClass("active");
+}
+else{
+  $('.insidenav #active-5').removeClass("active");
+}
+
+});
+
+var abilities=[$(".skills1 table tr td i:nth-child(1),.skills2 table tr td i:nth-child(1),.languages1 table tr td i:nth-child(1),.languages2 table tr td i:nth-child(1),.tools1 table tr td i:nth-child(1),.tools2 table tr td i:nth-child(1)")];
+abilities.push($(".skills1 table tr td i:nth-child(2),.skills2 table tr td i:nth-child(2),.languages1 table tr td i:nth-child(2),.languages2 table tr td i:nth-child(2),.tools1 table tr td i:nth-child(2),.tools2 table tr td i:nth-child(2)"));
+abilities.push($(".skills1 table tr td i:nth-child(3),.skills2 table tr td i:nth-child(3),.languages1 table tr td i:nth-child(3),.languages2 table tr td i:nth-child(3),.tools1 table tr td i:nth-child(3),.tools2 table tr td i:nth-child(3)"));
+abilities.push($(".skills1 table tr td i:nth-child(4),.skills2 table tr td i:nth-child(4),.languages1 table tr td i:nth-child(4),.languages2 table tr td i:nth-child(4),.tools1 table tr td i:nth-child(4),.tools2 table tr td i:nth-child(4)"));
+abilities.push($(".skills1 table tr td i:nth-child(5),.skills2 table tr td i:nth-child(5),.languages1 table tr td i:nth-child(5),.languages2 table tr td i:nth-child(5),.tools1 table tr td i:nth-child(5),.tools2 table tr td i:nth-child(5)"));
+
+
+function starsAnim(){
+  var duration=500;
+  for(var i=0;i<5;i++){
+  //console.log(abilities[i]);
+  abilities[i].fadeIn(duration);
+  duration+=500;
+  }
+}
+console.log(abilities[0]);
+function starsFadeOut(){
+  //console.log($(".skills1,.skills2 i"));
+  $(".abilities i").css({"display":"none"});
+  //$(".skills2 i").css({"display":"none"});
+}
+
+
+});
+
+</script>
 </body>
 
 </html>
